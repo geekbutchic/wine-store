@@ -6,14 +6,14 @@ import "./Navbar.css";
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-xl  bg-primary navbar-dark px-sm-5">
-        <Link to="/">
-          <h1 className="home">Home</h1>
+      <NavWrapper className="navbar navbar-expand-screen navbar-dark px-sm-5">
+        <Link to="/" className="home">
+          <h1 className="home">HOME</h1>
         </Link>
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
             <Link to="/" className="nav-link">
-              <h1>Vino Products</h1>
+              <h1 className="vino">VINO PRODUCTS</h1>
             </Link>
           </li>
         </ul>
@@ -25,7 +25,7 @@ export default class Navbar extends Component {
             my cart
           </ButtonContainer>
         </Link>
-      </nav>
+      </NavWrapper>
     );
   }
 }
@@ -47,3 +47,8 @@ transition: all 0.5s ease-in-out;
     outline: none;
 }
 `;
+
+const NavWrapper = styled.nav`
+background: var(--mainBlue);
+font-size: 1.3rem;
+`

@@ -1,7 +1,11 @@
 .home {
-    color: black;
+    color:white;
+    text-decoration: none;
 }
 
 .cart {
     color: black;
+}
+.vino {
+    color: white;
 }
