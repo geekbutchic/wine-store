@@ -19,6 +19,7 @@ body {
   text-transform: uppercase;
 }
 
+
 .text-blue {
   color: const(--mainBlue);
 }

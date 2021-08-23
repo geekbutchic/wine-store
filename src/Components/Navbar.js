@@ -32,7 +32,7 @@ export default class Navbar extends Component {
 
 const ButtonContainer = styled.button`
 text-transform: capitalize;
-font-size: 2.0rem;
+font-size: 1.7rem;
 border: 0.25rem solid var(--mainYellow);
 color: var(--lightBlue);
 border-radius: 0.5rem;
