@@ -50,9 +50,11 @@ export default class WineDetails extends Component {
                           disabled={inCart ? true : false}
                           onClick={() => {
                             value.addToCart(id);
+                            value.openModal(id);
+                            //OPEN MODAL ACCESS THROUGH PC
                           }}
                         >
-                          {inCart ? "inCart" : "add to cart"}
+                          {inCart ? "In Cart" : "add to cart"}
                         </ButtonContainer2>
                       </div>
                     </div>

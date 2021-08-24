@@ -6,6 +6,7 @@ import WineList from './Components/WineList';
 import WineDetails from './Components/WineDetails';
 import Cart from './Components/Cart';
 import PageNotFound from './Components/PageNotFound';
+import Modal from './Components/Modal';
 import "./App.css";
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <Route path="/cart" component={Cart} />
         <Route component={PageNotFound} />
       </Switch>
+      <Modal/> 
     </React.Fragment>;
   }
 }

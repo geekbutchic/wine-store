@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 export default class Wine extends Component {
   render() {
+    //DESTRUCT PROPS
     const { id, year, title, img, price, region, inCart } = this.props.product;
     return (
       <ProductWrapper className="col-9 mx-auto col-md-3 col-lg-4 my-4">
@@ -24,12 +25,13 @@ export default class Wine extends Component {
                   disabled={inCart ? true : false}
                   onClick={() => {
                     value.addToCart(id);
+                    value.openModal(id);
                   }}
                 >
                   {inCart ? (
                     <p className="text-capitalize mb-0" disabled>
                       {" "}
-                      in cart
+                      IN CART
                     </p>
                   ) : (
                     <i className="fas fa-heart" />
