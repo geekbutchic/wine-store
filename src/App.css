@@ -6,6 +6,7 @@
   --mainYellow: #ffa400;
   --mainRed: #ff1e00;
   --lightRed: #f52206;
+  --lightGrey: rgb(211, 202, 202);
 }
 
 body {
@@ -20,11 +21,28 @@ body {
   text-transform: uppercase;
 }
 
-
 .text-blue {
   color: const(--mainBlue);
 }
 
 .text-bright {
   color: const(--lightBlue);
+}
+
+.btn-black{
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem !important;
+  border-radius: 0.2 !important;
+  border: 0.1rem solid var(--mainDark) !important;  
+}
+
+.btn-black:hover{
+  background: var(--lightGrey) !important;
+  color: var(--mainDark) !important;
+}
+.cart-icon{
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--mainYellow);
 }

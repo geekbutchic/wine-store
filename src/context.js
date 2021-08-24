@@ -13,9 +13,9 @@ class ProductProvider extends Component {
     cart: [],
     modalOpen: false,
     modalProduct: detailProduct,
-    cartSubTotal: 0,
-    carTax: 0,
-    carTotal: 0,
+    cartSubTotal: 10,
+    cartTax: 5,
+    cartTotal: 15,
   };
   componentDidMount() {
     this.setProduct();
@@ -55,7 +55,8 @@ class ProductProvider extends Component {
     //FINAL COUNT
     product.total = price;
 
-    this.setState(//SET STATE WITH NEW COUNT - DISABLE IN CART IF CLICKED
+    this.setState(
+      //SET STATE WITH NEW COUNT - DISABLE IN CART IF CLICKED
       () => {
         return { products: tempProducts, cart: [...this.state.cart, product] };
       },
@@ -77,29 +78,41 @@ class ProductProvider extends Component {
   closedModal = (id) => {
     //RUN CLOSE MODAL
     this.setState(() => {
-        return {modalOpen: false}
+      return { modalOpen: false };
     });
   };
-
+//METHODS FOR CART INCREMENT, DECREMENT, REMOVE, CLEAR 
   increment = (id) => {
-    console.log('THIS IS INCREMENT');
-  }
+    console.log("THIS IS INCREMENT");
+  };
 
   decrement = (id) => {
-      console.log('THIS IS DECREMENT');
-  }
+    console.log("THIS IS DECREMENT");
+  };
+
+  removeItem = (id) => {
+    console.log("ITEM REMOVED");
+  };
+
+  clearCart = () => {
+    console.log("CART HAS BEEN CLEARED");
+  };
 
   render() {
     return (
       <ProductContext.Provider
-        value={{
+        value={{//METHODS AVAILABLE IN CONSUMER
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
           //USED IN WINE.JS + WINE DETAILS.JS = OPEN MODAL
           openModal: this.openModal,
           closeModal: this.closedModal,
-        }}
+          increment: this.increment,
+          decrement: this.decrement,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart,
+        }}//EASY TO PASS METHOD
       >
         {this.props.children}
       </ProductContext.Provider>

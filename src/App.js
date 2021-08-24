@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './Components/Navbar';
 import WineList from './Components/WineList';
 import WineDetails from './Components/WineDetails';
-import Cart from './Components/Cart';
+import Cart from './Components/Cart/Cart';
 import PageNotFound from './Components/PageNotFound';
 import Modal from './Components/Modal';
 import "./App.css";
