@@ -6,16 +6,30 @@ const ProductContext = React.createContext();
 //Consumer
 
 class ProductProvider extends Component {
-  state = {
-    products: wineProducts,
+  state = {//SET TO EMPTY ARRAY DUE TO NESTED OBJECT
+    products: [],
     detailProduct: detailProduct,
   };
+  componentDidMount () {
+    this.setProduct();
+  }
+  setProduct = () => { 
+      let tempProducts = [];
+      wineProducts.forEach(item => {//COPY ITEMS
+          const singleItem = {...item};
+          tempProducts = [...tempProducts, singleItem];
+      })
+      this.setState(() => {
+          return {products: tempProducts}
+      })
+  }
   handleDetail = () => {
     console.log("HELLO FROM DETAIL");
   };
   addToCart = () => {
     console.log("ADD TO CART");
   };
+  
   render() {
     return (
       <ProductContext.Provider
