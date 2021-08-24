@@ -10,30 +10,34 @@ export default class Wine extends Component {
     return (
       <ProductWrapper className="col-9 mx-auto col-md-3 col-lg-4 my-4">
         <div className="card">
-          <div
-            className="img-container p-3"
-            onClick={() => console.log("CLICKED IMG CONTAINER")}
-          >
-            <Link to="/">
-              <img src={img} alt="wine" className="card-img-top" />
-            </Link>
-            <button
-              className="cart-btn"
-              disabled={inCart ? true : false}
-              onClick={() => {
-                console.log("ADDED TO CART");
-              }}
-            >
-              {inCart ? (
-                <p className="text-capitalize mb-0" disabled>
-                  {" "}
-                  in cart
-                </p>
-              ) : (
-                <i className="fas fa-heart" />
-              )}
-            </button>
-          </div>
+          <ProductConsumer>
+            {(value) => (
+              <div
+                className="img-container p-3"
+                onClick={() => value.handleDetail(id)}
+              >
+                <Link to="/details">
+                  <img src={img} alt="wine" className="card-img-top" />
+                </Link>
+                <button
+                  className="cart-btn"
+                  disabled={inCart ? true : false}
+                  onClick={() => {
+                    value.addToCart(id);
+                  }}
+                >
+                  {inCart ? (
+                    <p className="text-capitalize mb-0" disabled>
+                      {" "}
+                      in cart
+                    </p>
+                  ) : (
+                    <i className="fas fa-heart" />
+                  )}
+                </button>
+              </div>
+            )}
+          </ProductConsumer>
           {/* Footer Card */}
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center mb-0">
